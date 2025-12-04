@@ -11,6 +11,11 @@ const navLinks = document.querySelectorAll('.nav a');
 const sections = document.querySelectorAll('.section');
 const yearSpan = document.getElementById('year');
 
+// 🌟 New: Mobile Navigation Elements 🌟
+const mobileSidebar = document.getElementById('mobile-sidebar');
+const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+const mobileCloseBtn = document.querySelector('.mobile-close-btn');
+
 // Set current year
 if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
@@ -55,6 +60,24 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+
+// --- Mobile Navigation Logic ---
+function openMobileNav() {
+    mobileSidebar.classList.add('open');
+    mobileNavToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+}
+
+function closeMobileNav() {
+    mobileSidebar.classList.remove('open');
+    mobileNavToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+}
+
+if(mobileNavToggle) mobileNavToggle.addEventListener('click', openMobileNav);
+if(mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMobileNav);
+
+
 // --- Smooth scrolling for nav links ---
 document.querySelectorAll('.nav a').forEach(a => {
   a.addEventListener('click', (ev) => {
@@ -71,6 +94,9 @@ document.querySelectorAll('.nav a').forEach(a => {
     // Update active class immediately on click
     navLinks.forEach(link => link.classList.remove('active'));
     a.classList.add('active');
+
+    // 🌟 Close the sidebar on link click (for mobile) 🌟
+    closeMobileNav();
   });
 });
 
