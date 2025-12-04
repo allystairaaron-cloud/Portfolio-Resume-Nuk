@@ -11,7 +11,10 @@ const navLinks = document.querySelectorAll('.nav a');
 const sections = document.querySelectorAll('.section');
 const yearSpan = document.getElementById('year');
 
-// 🌟 New: Mobile Navigation Elements 🌟
+// 🌟 NEW ELEMENT FOR MODAL LINK 🌟
+const modalLink = document.getElementById('modal-link'); 
+
+// 🌟 Mobile Navigation Elements 🌟
 const mobileSidebar = document.getElementById('mobile-sidebar');
 const mobileNavToggle = document.getElementById('mobile-nav-toggle');
 const mobileCloseBtn = document.querySelector('.mobile-close-btn');
@@ -51,9 +54,8 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem(THEME_KEY, next);
 });
 
-// Keyboard shortcut: "D" to toggle theme (for power users)
+// Keyboard shortcut: "Ctrl+D" or "Cmd+D" to toggle theme (for power users)
 document.addEventListener('keydown', (e) => {
-  // Use Ctrl+D or Cmd+D to avoid conflict with standard "d" keypress
   if (e.key.toLowerCase() === 'd' && (e.metaKey || e.ctrlKey)) {
     e.preventDefault();
     themeToggle.click();
@@ -96,7 +98,10 @@ document.querySelectorAll('.nav a').forEach(a => {
     a.classList.add('active');
 
     // 🌟 Close the sidebar on link click (for mobile) 🌟
-    closeMobileNav();
+    // Check if the sidebar is currently open (implies mobile view)
+    if (mobileSidebar.classList.contains('open')) {
+        closeMobileNav();
+    }
   });
 });
 
@@ -105,6 +110,21 @@ function openModal(data){
   modalTitle.textContent = data.title || 'Project';
   modalTech.textContent = data.tech ? `Tech: ${data.tech}` : '';
   modalDesc.textContent = data.desc || 'No details available.';
+  
+  // 🌟 NEW: Handle Link Dynamically 🌟
+  if (data.link) {
+      modalLink.href = data.link;
+      modalLink.textContent = 'View Live Prototype';
+      modalLink.setAttribute('target', '_blank'); // Open in new tab
+      modalLink.style.display = 'inline';
+  } else {
+      modalLink.href = '#';
+      modalLink.textContent = 'View Code (Unavailable)';
+      modalLink.removeAttribute('target');
+      // Set display to inline so the 'Unavailable' text is still shown
+      modalLink.style.display = 'inline'; 
+  }
+  
   modal.setAttribute('aria-hidden', 'false');
   // trap focus - focus the close button
   const closeBtn = modal.querySelector('.modal-close');
@@ -186,7 +206,8 @@ const navObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    rootMargin: "-25% 0px -75% 0px", // Highlight section when it is in the top 25% of the viewport
+    // Highlight section when it is roughly in the middle of the viewport
+    rootMargin: "-25% 0px -75% 0px", 
     threshold: 0 
 });
 
