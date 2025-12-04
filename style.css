@@ -36,6 +36,8 @@ body{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height: 1.6; /* Improved readability */
+  /* Added smooth theme transition */
+  transition: background .3s ease, color .3s ease;
 }
 
 /* Base link and text styles */
@@ -50,6 +52,8 @@ a:hover{text-decoration:underline}
 .sidebar{
   width:250px;flex:0 0 250px;padding:28px;background:linear-gradient(180deg,var(--card),var(--glass));
   display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(0,0,0,0.04);
+  /* Added smooth theme transition for background */
+  transition: background .3s ease; 
 }
 .sidebar-top {
     display: flex;
@@ -84,6 +88,33 @@ a:hover{text-decoration:underline}
     transform: rotate(40deg);
 }
 
+/* New: Mobile Toggle Button styles */
+.mobile-nav-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--text);
+    cursor: pointer;
+    transition: color .2s;
+    position: fixed; /* Fixed position outside the sidebar */
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+}
+.mobile-nav-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Hide the Close Button on desktop */
+.mobile-close-btn {
+    display: none;
+    margin-left: auto;
+}
+
+
 /* Nav */
 .nav{display:flex;flex-direction:column;gap:10px}
 .nav a{
@@ -117,7 +148,10 @@ a:hover{text-decoration:underline}
 .meta{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
 
 /* Skills */
-.skills-grid{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.skills-grid{display:flex;gap:12px;flex-wrap:wrap;
+  /* Centered skills chips */
+  justify-content:center;
+}
 .chip{background:var(--glass);padding:12px 14px;border-radius:12px;min-width:180px;display:flex;flex-direction:column;gap:6px; border: 1px solid var(--glass);}
 .chip strong{font-size:.95rem; color: var(--accent)}
 .chip span{color:var(--muted);font-size:.92rem}
@@ -150,8 +184,41 @@ a:hover{text-decoration:underline}
 
 /* Make timeline responsive: on very small screens show time above content */
 @media (max-width:780px){
-  .sidebar{display:none}
-  .main{padding:20px}
+  /* Mobile Sidebar styles: fixed position and hidden off-screen */
+  .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%); /* Hide it off-screen */
+    transition: transform .3s ease-out;
+    z-index: 90;
+    box-shadow: var(--shadow);
+    width: 300px; 
+  }
+  
+  /* Class to show the sidebar */
+  .sidebar.open {
+    transform: translateX(0); 
+  }
+
+  .main{
+    padding:20px;
+    /* Add padding to the top of main content to clear the fixed mobile toggle */
+    padding-top: 60px; 
+  }
+
+  /* Show the main menu button */
+  .mobile-nav-toggle {
+    display: block;
+  }
+  
+  /* Show the close button inside the sidebar */
+  .mobile-close-btn {
+    display: grid;
+  }
+
+  /* Existing timeline responsive adjustments */
   .timeline{padding-left: 0; max-width: none;}
   .timeline::before{left: 0;}
   .timeline-item{padding-left:16px}
