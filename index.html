@@ -11,20 +11,12 @@
 
     <div class="app">
 
-        <aside class="sidebar" id="mobile-sidebar">
+        <aside class="sidebar">
             <div class="sidebar-top">
-                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" title="Toggle Navigation">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                    </svg>
-                </button>
-                
                 <div class="brand">
                     <div class="icon">NN</div>
                     <h2 class="name">Nuaim Nukman <span class="muted">Portfolio</span></h2>
-                    <button class="modal-close mobile-close-btn" aria-label="Close Menu">×</button>
                 </div>
-                
                 <button class="theme-toggle" id="theme-toggle" aria-pressed="false" title="Toggle Theme">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -39,7 +31,7 @@
                 <a href="#experience">Experience</a>
             </nav>
             <div class="sidebar-footer">
-                <a href="resume.pdf" class="btn resume-btn" download>Download Resume</a>
+                <a href="#" class="btn resume-btn">Download Resume</a>
                 <p class="link-muted">Version 1.0</p>
             </div>
         </aside>
@@ -178,11 +170,11 @@
             <section id="projects" class="section">
                 <h2 class="section-title">Projects</h2>
                 <div class="project-grid">
-                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Mobile App Prototype", "tech": "Figma, UI/UX Design", "desc": "Designed a complete mobile application interface and user flow for the Kuching Urban Transportation System (KUTS). Focused on intuitive navigation, real-time route tracking, and ticket purchasing.", "link": "https://www.figma.com/proto/lwLUVfYWcBX2YMEzwFWBZQ/Prtotype-Assignment-3?node-id=9-31&t=9xuwKOyQ8ypq9qs1-1"}'>
+                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Mobile App Prototype", "tech": "Figma, UI/UX Design", "desc": "Designed a complete mobile application interface and user flow for the Kuching Urban Transportation System (KUTS). Focused on intuitive navigation, real-time route tracking, and ticket purchasing."}'>
                         <h3 class="pc-title">KUTS Mobile App Prototype (Figma)</h3>
                         <p class="pc-sub">Figma, UI/UX Design</p>
                     </div>
-                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Interactive Map", "tech": "Figma Prototyping", "desc": "Created a high-fidelity interactive map user interface, allowing users to visually select destinations and view optimized route information for KUTS services. Implemented advanced prototyping features to simulate real-world usage.", "link": "https://www.figma.com/proto/HFyoUnYXYtYW3pYtovOCwV?node-id=0:1"}'>
+                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Interactive Map", "tech": "Figma Prototyping", "desc": "Created a high-fidelity interactive map user interface, allowing users to visually select destinations and view optimized route information for KUTS services. Implemented advanced prototyping features to simulate real-world usage."}'>
                         <h3 class="pc-title">KUTS Interactive Map (Figma)</h3>
                         <p class="pc-sub">Figma Prototyping</p>
                     </div>
@@ -198,16 +190,14 @@
             </footer>
         </main>
         
-    </div> 
-    
-    <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    </div> <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="modal-panel">
             <button class="modal-close" aria-label="Close Modal">×</button>
             <h2 id="modal-title">Project Title</h2>
             <p class="muted" id="modal-tech"></p>
             <p id="modal-desc" style="margin-top: 15px;"></p>
             <div class="modal-actions">
-                <a href="#" class="link-muted" id="modal-link">View Code (Unavailable)</a>
+                <a href="#" class="link-muted">View Code (Unavailable)</a>
                 <button class="btn" id="modal-close-btn">Close</button>
             </div>
         </div>
