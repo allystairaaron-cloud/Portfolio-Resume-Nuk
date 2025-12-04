@@ -11,10 +11,10 @@ const navLinks = document.querySelectorAll('.nav a');
 const sections = document.querySelectorAll('.section');
 const yearSpan = document.getElementById('year');
 
-// 🌟 NEW ELEMENT FOR MODAL LINK 🌟
+// 🌟 RE-ADDED ELEMENT FOR MODAL LINK 🌟
 const modalLink = document.getElementById('modal-link'); 
 
-// 🌟 Mobile Navigation Elements 🌟
+// 🌟 RE-ADDED Mobile Navigation Elements 🌟
 const mobileSidebar = document.getElementById('mobile-sidebar');
 const mobileNavToggle = document.getElementById('mobile-nav-toggle');
 const mobileCloseBtn = document.querySelector('.mobile-close-btn');
@@ -63,17 +63,21 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-// --- Mobile Navigation Logic ---
+// --- RE-ADDED Mobile Navigation Logic ---
 function openMobileNav() {
-    mobileSidebar.classList.add('open');
-    mobileNavToggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
+    if(mobileSidebar) {
+      mobileSidebar.classList.add('open');
+      mobileNavToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    }
 }
 
 function closeMobileNav() {
-    mobileSidebar.classList.remove('open');
-    mobileNavToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    if(mobileSidebar) {
+      mobileSidebar.classList.remove('open');
+      mobileNavToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
 }
 
 if(mobileNavToggle) mobileNavToggle.addEventListener('click', openMobileNav);
@@ -99,7 +103,7 @@ document.querySelectorAll('.nav a').forEach(a => {
 
     // 🌟 Close the sidebar on link click (for mobile) 🌟
     // Check if the sidebar is currently open (implies mobile view)
-    if (mobileSidebar.classList.contains('open')) {
+    if (mobileSidebar && mobileSidebar.classList.contains('open')) {
         closeMobileNav();
     }
   });
@@ -111,7 +115,7 @@ function openModal(data){
   modalTech.textContent = data.tech ? `Tech: ${data.tech}` : '';
   modalDesc.textContent = data.desc || 'No details available.';
   
-  // 🌟 NEW: Handle Link Dynamically 🌟
+  // 🌟 RE-ADDED: Handle Link Dynamically 🌟
   if (data.link) {
       modalLink.href = data.link;
       modalLink.textContent = 'View Live Prototype';
