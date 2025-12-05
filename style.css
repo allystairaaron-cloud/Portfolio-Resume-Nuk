@@ -59,6 +59,24 @@ a:hover{text-decoration:underline}
 }
 .mobile-nav-toggle svg{width:24px;height:24px}
 
+/* New: Theme Toggle Size Adjustment */
+.theme-toggle{
+    background:var(--glass);
+    border:1px solid rgba(0,0,0,0.08);
+    padding:8px; /* Slightly smaller padding */
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+    margin-bottom: 20px; /* Separator from the navigation */
+}
+.theme-toggle:hover{
+    border-color:var(--accent);
+}
+.theme-toggle svg{
+    width:22px; /* Decreased size for the crescent/moon icon */
+    height:22px;
+}
+
 /* Sidebar */
 .sidebar{
   width:250px;
@@ -169,6 +187,13 @@ a:hover{text-decoration:underline}
   border-radius:12px;
   margin-bottom:26px;
   box-shadow:var(--shadow);
+}
+
+/* New: Center Section Titles */
+.section-title{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 /* HERO */
