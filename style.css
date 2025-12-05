@@ -172,9 +172,6 @@ a:hover{text-decoration:underline}
   box-shadow:var(--shadow);
 }
 
-/* Section Headers */
-.section-title{margin-bottom:20px; font-size:1.5rem; font-weight:700;}
-
 /* HERO */
 .hero{display:flex;align-items:center;justify-content:center;padding:40px 0}
 .hero-inner{
@@ -215,6 +212,12 @@ a:hover{text-decoration:underline}
   text-align:center;
 }
 
+/* Mobile Skills */
+@media (max-width:780px){
+  .skills-grid{justify-content:center;gap:10px}
+  .chip{min-width:120px;padding:10px 12px;}
+}
+
 /* Timeline */
 .timeline{position:relative;padding-left:14px}
 .timeline::before{
@@ -233,7 +236,13 @@ a:hover{text-decoration:underline}
   background:var(--accent);
   border:3px solid var(--bg);
 }
-.timeline-item .content { text-align:left; }
+
+/* Mobile Timeline */
+@media (max-width:780px){
+  .timeline{padding-left:0}
+  .timeline-item{padding-left:20px}
+  .timeline-item::after{left:-6px}
+}
 
 /* Projects */
 .project-grid{
@@ -290,24 +299,10 @@ a:hover{text-decoration:underline}
 /* Footer */
 .site-footer{text-align:center;color:var(--muted);padding:20px 0}
 
-/* Mobile Adjustments */
+/* Mobile Toggle Icon Resize */
 @media (max-width:780px){
-  /* Mobile toggle icon */
-  .mobile-nav-toggle svg{width:20px;height:20px;}
-
-  /* Center section headers and content */
-  .section-title{text-align:center;}
-
-  #skills .skills-grid,
-  #education .timeline,
-  #experience .timeline{
-    justify-content:center;
-    text-align:center;
+  .mobile-nav-toggle svg{
+    width:20px;
+    height:20px;
   }
-
-  /* Timeline items text center */
-  .timeline-item .content{text-align:center;}
-
-  /* Skills chips smaller */
-  .chip{min-width:120px;padding:10px 12px;}
 }
