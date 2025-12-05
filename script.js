@@ -11,10 +11,10 @@ const navLinks = document.querySelectorAll('.nav a');
 const sections = document.querySelectorAll('.section');
 const yearSpan = document.getElementById('year');
 
-// 🌟 RE-ADDED ELEMENT FOR MODAL LINK 🌟
+// ELEMENT FOR MODAL LINK 
 const modalLink = document.getElementById('modal-link'); 
 
-// 🌟 RE-ADDED Mobile Navigation Elements 🌟
+// Mobile Navigation Elements 
 const mobileSidebar = document.getElementById('mobile-sidebar');
 const mobileNavToggle = document.getElementById('mobile-nav-toggle');
 const mobileCloseBtn = document.querySelector('.mobile-close-btn');
@@ -63,7 +63,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-// --- RE-ADDED Mobile Navigation Logic ---
+// ---  Mobile Navigation Logic ---
 function openMobileNav() {
     if(mobileSidebar) {
       mobileSidebar.classList.add('open');
@@ -101,7 +101,7 @@ document.querySelectorAll('.nav a').forEach(a => {
     navLinks.forEach(link => link.classList.remove('active'));
     a.classList.add('active');
 
-    // 🌟 Close the sidebar on link click (for mobile) 🌟
+    //  Close the sidebar on link click (for mobile) 
     // Check if the sidebar is currently open (implies mobile view)
     if (mobileSidebar && mobileSidebar.classList.contains('open')) {
         closeMobileNav();
@@ -115,7 +115,7 @@ function openModal(data){
   modalTech.textContent = data.tech ? `Tech: ${data.tech}` : '';
   modalDesc.textContent = data.desc || 'No details available.';
   
-  // 🌟 RE-ADDED: Handle Link Dynamically 🌟
+  //  Handle Link Dynamically 
   if (data.link) {
       modalLink.href = data.link;
       modalLink.textContent = 'View Live Prototype';
@@ -216,3 +216,4 @@ const navObserver = new IntersectionObserver((entries) => {
 });
 
 sections.forEach(s => navObserver.observe(s));
+
