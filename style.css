@@ -6,7 +6,6 @@
   --text: #0f172a;
   --accent: #2563eb;
   --accent-2: #4f46e5;
-  --accent-rgb: 37, 99, 235; /* RGB value for #2563eb */
   --glass: rgba(15,23,42,0.03);
   --shadow: 0 6px 18px rgba(2,6,23,0.06);
 }
@@ -18,7 +17,6 @@
   --text: #e6eef8;
   --accent: #60a5fa;
   --accent-2: #8b5cf6;
-  --accent-rgb: 96, 165, 250; /* RGB value for #60a5fa */
   --glass: rgba(255,255,255,0.03);
   --shadow: 0 8px 26px rgba(2,6,23,0.6);
 }
@@ -61,44 +59,20 @@ a:hover{text-decoration:underline}
     display: flex;
     flex-direction: column;
 }
-/* UPDATED: Brand styles for new layout */
 .brand{display:flex;align-items:center;gap:12px;margin-bottom: 24px;}
-.brand > div { /* Target the new container for name and motto */
-    display: flex;
-    flex-direction: column;
-    gap: 2px; /* Small gap between name and motto */
-}
-
-/* NEW: Brand Profile Image Style (Pulsing Effect) */
-.brand-profile-img {
+.brand .icon {
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* Make it a circle */
-    object-fit: cover;
-    border: 2px solid var(--muted); 
-    transition: all 0.3s ease-in-out; 
-    cursor: pointer;
-    box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0);
+    background: var(--accent);
+    color: white;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
 }
-
-.brand-profile-img:hover {
-    transform: scale(1.1); /* Slightly larger */
-    border-color: var(--accent); /* Change border color */
-    /* NEW: Pulsing/Glow effect on hover using the RGB variable */
-    box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.3); 
-}
-
 .name{font-size:1.25rem;font-weight:700;line-height:1;color:var(--text)}
 .name span{font-weight:500;color:var(--muted);font-size:0.9rem; display: block;}
-
-/* NEW: Brand Motto Style */
-.brand-motto {
-    margin: 0;
-    font-size: 0.85rem;
-    color: var(--accent); 
-    font-weight: 500;
-}
-
 .theme-toggle{
   margin-left:auto;background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px;border-radius:8px;color:var(--muted);
   cursor:pointer;display:inline-grid;place-items:center; transition: all .2s;
@@ -157,13 +131,14 @@ a:hover{text-decoration:underline}
   display:inline-block;background:var(--accent);color:white;padding:10px;border-radius:8px;text-decoration:none;text-align:center;border:none;cursor:pointer;font-weight:600;
   transition: all .2s;
 }
-.btn:hover{opacity:.95;transform:translateY(-2px); box-shadow: 0 4px 10px rgba(var(--accent-rgb), 0.3);}
+.btn:hover{opacity:.95;transform:translateY(-2px); box-shadow: 0 4px 10px rgba(var(--accent), 0.3);}
 .link-muted{color:var(--muted);text-decoration:none;font-size:.9rem}
 
 /* Main content */
 .main{flex:1;padding:36px;overflow:auto;min-height:100vh}
 .section{background:var(--card);padding:26px;border-radius:12px;margin-bottom:26px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
-.section-title{font-size:1.05rem;margin:0 0 12px 0;color:var(--text);font-weight:700}
+/* ADJUSTED: Center the section title */
+.section-title{font-size:1.05rem;margin:0 0 12px 0;color:var(--text);font-weight:700; text-align: center;}
 /* Hero Section Polish */
 .hero{display:flex;align-items:center;justify-content:center;padding-top:40px;padding-bottom:40px}
 .hero-inner{
@@ -177,28 +152,6 @@ a:hover{text-decoration:underline}
 .title{font-size:clamp(2rem, 5vw, 3rem);margin-bottom:6px; font-weight: 900;}
 .lead{color:var(--accent);margin-bottom:14px; font-weight: 600;}
 .summary{color:var(--muted);margin-bottom:16px; max-width: 700px; font-size: 1.1rem; line-height: 1.8;}
-
-/* NEW: CTA Group Styles */
-.cta-group {
-    display: flex;
-    gap: 12px;
-    margin-top: 20px;
-    margin-bottom: 24px;
-    flex-wrap: wrap; 
-}
-.secondary-cta {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    transition: background .2s, color .2s;
-}
-.secondary-cta:hover {
-    background: var(--accent);
-    color: white;
-    box-shadow: 0 4px 10px rgba(var(--accent-rgb), 0.3);
-}
-
-
 .meta{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
 
 /* Profile Image Styles */
@@ -219,41 +172,19 @@ a:hover{text-decoration:underline}
     flex-grow: 1; /* Allows text to take up the remaining space */
 }
 
-/* Skills (Lift effect on hover) */
+/* Skills */
 .skills-grid{display:flex;gap:12px;flex-wrap:wrap;
   /* Centered skills chips */
   justify-content:center;
 }
-.chip{
-    background:var(--glass);padding:12px 14px;border-radius:12px;min-width:180px;
-    display:flex;flex-direction:column;gap:6px; border: 1px solid var(--glass);
-    /* NEW: Engaging hover effect setup */
-    transition: all .2s ease;
-    cursor: default; /* Not a clickable element */
-}
-.chip:hover {
-    transform: translateY(-4px); /* Lift effect */
-    box-shadow: 0 6px 14px rgba(2,6,23,0.08); /* Subtle shadow on lift */
-    border-color: var(--accent); /* Highlight on hover */
-}
+.chip{background:var(--glass);padding:12px 14px;border-radius:12px;min-width:180px;display:flex;flex-direction:column;gap:6px; border: 1px solid var(--glass);}
 .chip strong{font-size:.95rem; color: var(--accent)}
 .chip span{color:var(--muted);font-size:.92rem}
 
 /* Timeline (used for Experience and Education) */
 .timeline{position:relative;padding-left:14px; max-width: 700px;}
 .timeline::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:2px;opacity:.9}
-.timeline-item{
-    position:relative;padding:12px 14px 12px 36px;
-    margin:12px 0; /* Increased margin for spacing */
-    border-radius:8px;
-    /* NEW: Add a background and border to separate items clearly */
-    background: var(--glass);
-    border: 1px solid rgba(0,0,0,0.03);
-    transition: background .2s ease;
-}
-.timeline-item:hover {
-    background: var(--card); /* Make it look slightly elevated on hover */
-}
+.timeline-item{position:relative;padding:12px 14px 12px 36px;margin:8px 0;border-radius:8px;background:transparent;align-items:flex-start}
 .timeline-item::after {
     content: "";
     position: absolute;
@@ -285,10 +216,6 @@ a:hover{text-decoration:underline}
   }
   .hero-inner .hero-text-content {
       text-align: center;
-  }
-  /* Center the CTA group on mobile */
-  .cta-group {
-      justify-content: center;
   }
   .profile-img-container {
       margin-bottom: 24px; /* Space below image when stacked */
