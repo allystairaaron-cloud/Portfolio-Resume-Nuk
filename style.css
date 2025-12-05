@@ -6,6 +6,7 @@
   --text: #0f172a;
   --accent: #2563eb;
   --accent-2: #4f46e5;
+  --accent-rgb: 37, 99, 235; /* NEW: RGB value for #2563eb for effects */
   --glass: rgba(15,23,42,0.03);
   --shadow: 0 6px 18px rgba(2,6,23,0.06);
 }
@@ -17,6 +18,7 @@
   --text: #e6eef8;
   --accent: #60a5fa;
   --accent-2: #8b5cf6;
+  --accent-rgb: 96, 165, 250; /* NEW: RGB value for #60a5fa for effects */
   --glass: rgba(255,255,255,0.03);
   --shadow: 0 8px 26px rgba(2,6,23,0.6);
 }
@@ -59,20 +61,46 @@ a:hover{text-decoration:underline}
     display: flex;
     flex-direction: column;
 }
+/* UPDATED: Brand styles for new layout */
 .brand{display:flex;align-items:center;gap:12px;margin-bottom: 24px;}
-.brand .icon {
+.brand > div { /* Target the new container for name and motto */
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Small gap between name and motto */
+}
+
+/* REMOVED: .brand .icon styles */
+
+/* NEW: Brand Profile Image Style (Pulsing Effect) */
+.brand-profile-img {
     width: 40px;
     height: 40px;
-    background: var(--accent);
-    color: white;
-    border-radius: 0; /* Adjusted to sharp corners */
-    display: grid;
-    place-items: center;
-    font-weight: 700;
-    font-size: 1.1rem;
+    border-radius: 50%; /* Make it a circle */
+    object-fit: cover;
+    border: 2px solid var(--muted); 
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0);
 }
+
+.brand-profile-img:hover {
+    transform: scale(1.1); /* Slightly larger */
+    border-color: var(--accent); /* Change border color */
+    /* NEW: Pulsing/Glow effect on hover using the RGB variable */
+    box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.3); 
+}
+
 .name{font-size:1.25rem;font-weight:700;line-height:1;color:var(--text)}
 .name span{font-weight:500;color:var(--muted);font-size:0.9rem; display: block;}
+
+/* NEW: Brand Motto Style */
+.brand-motto {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--accent); 
+    font-weight: 500;
+}
+
 .theme-toggle{
   margin-left:auto;background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px;border-radius:8px;color:var(--muted);
   cursor:pointer;display:inline-grid;place-items:center; transition: all .2s;
@@ -131,13 +159,14 @@ a:hover{text-decoration:underline}
   display:inline-block;background:var(--accent);color:white;padding:10px;border-radius:8px;text-decoration:none;text-align:center;border:none;cursor:pointer;font-weight:600;
   transition: all .2s;
 }
-.btn:hover{opacity:.95;transform:translateY(-2px); box-shadow: 0 4px 10px rgba(var(--accent), 0.3);}
+.btn:hover{opacity:.95;transform:translateY(-2px); box-shadow: 0 4px 10px rgba(var(--accent-rgb), 0.3);}
 .link-muted{color:var(--muted);text-decoration:none;font-size:.9rem}
 
 /* Main content */
 .main{flex:1;padding:36px;overflow:auto;min-height:100vh}
 .section{background:var(--card);padding:26px;border-radius:12px;margin-bottom:26px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
-.section-title{font-size:1.05rem;margin:0 0 12px 0;color:var(--text);font-weight:700}
+/* ADJUSTED: Center the section title */
+.section-title{font-size:1.05rem;margin:0 0 12px 0;color:var(--text);font-weight:700; text-align: center;}
 /* Hero Section Polish */
 .hero{display:flex;align-items:center;justify-content:center;padding-top:40px;padding-bottom:40px}
 .hero-inner{
