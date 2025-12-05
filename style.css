@@ -63,7 +63,7 @@ a:hover{text-decoration:underline}
 .theme-toggle{
     background:var(--glass);
     border:1px solid rgba(0,0,0,0.08);
-    padding:8px; /* Slightly smaller padding */
+    padding:6px; /* Further reduced padding for a smaller button */
     border-radius:8px;
     cursor:pointer;
     transition:.3s;
@@ -73,8 +73,8 @@ a:hover{text-decoration:underline}
     border-color:var(--accent);
 }
 .theme-toggle svg{
-    width:22px; /* Decreased size for the crescent/moon icon */
-    height:22px;
+    width:18px; /* Further decreased size for the crescent/moon icon */
+    height:18px;
 }
 
 /* Sidebar */
@@ -189,7 +189,7 @@ a:hover{text-decoration:underline}
   box-shadow:var(--shadow);
 }
 
-/* New: Center Section Titles */
+/* Section Title (Centered) */
 .section-title{
     text-align: center;
     margin-bottom: 20px;
