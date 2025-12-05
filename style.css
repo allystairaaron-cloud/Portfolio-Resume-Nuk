@@ -172,29 +172,51 @@ a:hover{text-decoration:underline}
   box-shadow:var(--shadow);
 }
 
+/* Center Section Titles */
+.section-title{
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+@media (max-width:780px){
+  .section-title{
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+}
+
 /* HERO */
-.hero{display:flex;align-items:center;justify-content:center;padding:40px 0}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  text-align: center; /* center hero text */
+}
 .hero-inner{
   max-width:980px;
   width:100%;
   display:flex;
-  gap:30px;
+  flex-direction:column; /* stack profile + text */
+  align-items:center;
+  gap:20px;
 }
-.profile-img-container{padding-top:15px}
-.profile-img{
-  width:120px;height:120px;border-radius:50%;
-  object-fit:cover;
-  border:3px solid var(--accent);
+.profile-img-container{
+  padding-top:0;
+  margin-bottom:20px;
 }
-.hero-text-content{flex:1}
-
-/* Mobile Hero Stack */
-@media (max-width:780px){
-  .hero-inner{
-    flex-direction:column;
-    text-align:center;
-  }
-  .profile-img-container{padding-top:0;margin-bottom:20px}
+.hero-text-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.hero-text-content .lead,
+.hero-text-content .title,
+.hero-text-content .summary,
+.hero-text-content .meta{
+  text-align:center;
 }
 
 /* Skills */
