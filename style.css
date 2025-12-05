@@ -59,20 +59,38 @@ a:hover{text-decoration:underline}
     display: flex;
     flex-direction: column;
 }
+/* UPDATED: Brand styles for new layout */
 .brand{display:flex;align-items:center;gap:12px;margin-bottom: 24px;}
-.brand .icon {
+.brand > div { /* Target the new container for name and motto */
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Small gap between name and motto */
+}
+
+/* NEW: Brand Profile Image Style (Replaces .brand .icon) */
+.brand-profile-img {
     width: 40px;
     height: 40px;
-    background: var(--accent);
-    color: white;
-    border-radius: 8px;
-    display: grid;
-    place-items: center;
-    font-weight: 700;
-    font-size: 1.1rem;
+    border-radius: 50%; /* Make it a circle */
+    object-fit: cover;
+    border: 2px solid var(--accent); /* Theme-aware border */
+    transition: transform .3s ease, border-color .3s ease;
 }
+.brand-profile-img:hover {
+    transform: scale(1.05);
+}
+
 .name{font-size:1.25rem;font-weight:700;line-height:1;color:var(--text)}
 .name span{font-weight:500;color:var(--muted);font-size:0.9rem; display: block;}
+
+/* NEW: Brand Motto Style */
+.brand-motto {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--accent); 
+    font-weight: 500;
+}
+
 .theme-toggle{
   margin-left:auto;background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px;border-radius:8px;color:var(--muted);
   cursor:pointer;display:inline-grid;place-items:center; transition: all .2s;
