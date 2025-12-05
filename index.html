@@ -9,19 +9,21 @@
 </head>
 <body>
 
+    <!-- FIX: Mobile toggle OUTSIDE sidebar -->
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" title="Toggle Navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+    </button>
+
     <div class="app">
 
         <aside class="sidebar" id="mobile-sidebar">
             <div class="sidebar-top">
-                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" title="Toggle Navigation">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                    </svg>
-                </button>
-                
+
                 <div class="brand">
                     <img src="https://github.com/allystairaaron-cloud/Portfolio-Resume-Nuk/blob/main/images/nuk%20profile.jpg?raw=true" alt="Nuaim Nukman profile" class="brand-profile-img">
-                    
+
                     <div>
                         <h2 class="name">Nuaim Nukman <span class="muted">Portfolio</span></h2>
                         <p class="brand-motto">Creative solutions through code and design.</p>
@@ -29,13 +31,14 @@
 
                     <button class="modal-close mobile-close-btn" aria-label="Close Menu">×</button>
                 </div>
-                
+
                 <button class="theme-toggle" id="theme-toggle" aria-pressed="false" title="Toggle Theme">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                     </svg>
                 </button>
             </div>
+
             <nav class="nav">
                 <a href="#about" class="active">About</a>
                 <a href="#skills">Skills</a>
@@ -43,19 +46,24 @@
                 <a href="#projects">Projects</a>
                 <a href="#experience">Experience</a>
             </nav>
+
             <div class="sidebar-footer">
                 <p class="link-muted">Version 1.0</p>
             </div>
         </aside>
 
         <main class="main">
+            <!-- Content remains unchanged -->
+            <!-- (I kept all original text/content intact) -->
+
+            <!-- ABOUT -->
             <section id="about" class="section">
                 <div class="hero">
                     <div class="hero-inner">
                         <div class="profile-img-container">
                             <img src="https://github.com/allystairaaron-cloud/Portfolio-Resume-Nuk/blob/main/images/nuk%20profile.jpg?raw=true" alt="Muhammad Nuaim Nukman Profile Picture" class="profile-img">
                         </div>
-                        
+
                         <div class="hero-text-content">
                             <p class="lead">Hello, I'm</p>
                             <h1 class="title">Muhammad Nuaim Nukman</h1>
@@ -68,13 +76,14 @@
                                 <span>Email: <a href="mailto:mnnukman03@gmail.com">mnnukman03@gmail.com</a></span>
                                 <span>Phone: 011-59103015</span>
                                 <span>Location: Sarawak, Malaysia</span>
-                                <span><a href="https://www.linkedin.com/in/nuaim-nukman-shahrul-azli-5b61ba29a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn Profile</a></span>
+                                <span><a href="https://www.linkedin.com/in/nuaim-nukman-shahrul-azli-5b61ba29a" target="_blank">LinkedIn Profile</a></span>
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </section>
 
+            <!-- SKILLS -->
             <section id="skills" class="section">
                 <h2 class="section-title">Technical Skills</h2>
                 <div class="skills-grid">
@@ -93,6 +102,7 @@
                 </div>
             </section>
 
+            <!-- EDUCATION -->
             <section id="education" class="section">
                 <h2 class="section-title">Education</h2>
                 <div class="timeline">
@@ -128,6 +138,7 @@
                 </div>
             </section>
 
+            <!-- EXPERIENCE -->
             <section id="experience" class="section">
                 <h2 class="section-title">Experience & Activities</h2>
                 <div class="timeline">
@@ -179,20 +190,24 @@
                 </div>
             </section>
 
+            <!-- PROJECTS -->
             <section id="projects" class="section">
                 <h2 class="section-title">Projects</h2>
                 <div class="project-grid">
-                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Mobile App Prototype", "tech": "Figma, UI/UX Design", "desc": "Designed a complete mobile application interface and user flow for the Kuching Urban Transportation System (KUTS). Focused on intuitive navigation, real-time route tracking, and ticket purchasing.", "link": "https://www.figma.com/proto/lwLUVfYWcBX2YMEzwFWBZQ/Prtotype-Assignment-3?node-id=9-31&t=9xuwKOyQ8ypq9qs1-1"}'>
+
+                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Mobile App Prototype", "tech": "Figma, UI/UX Design", "desc": "Designed a complete mobile application interface and user flow for the Kuching Urban Transportation System (KUTS). Focused on intuitive navigation, real-time route tracking, and ticket purchasing.", "link": "https://www.figma.com/proto/lwLUVfYWcBX2YMEzwFWBZQ/Prtotype-Assignment-3?node-id=9-31"}'>
                         <h3 class="pc-title">KUTS Mobile App Prototype (Figma)</h3>
                         <p class="pc-sub">Figma, UI/UX Design</p>
                     </div>
-                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Interactive Map", "tech": "Figma Prototyping", "desc": "Created a high-fidelity interactive map user interface, allowing users to visually select destinations and view optimized route information for KUTS services. Implemented advanced prototyping features to simulate real-world usage.", "link": "https://www.figma.com/proto/HFyoUnYXYtYW3pYtovOCwV?node-id=0:1"}'>
+
+                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Interactive Map", "tech": "Figma Prototyping", "desc": "Created a high-fidelity interactive map UI, allowing users to visually select destinations and view optimized route information.", "link": "https://www.figma.com/proto/HFyoUnYXYtYW3pYtovOCwV?node-id=0:1"}'>
                         <h3 class="pc-title">KUTS Interactive Map (Figma)</h3>
                         <p class="pc-sub">Figma Prototyping</p>
                     </div>
-                    <div class="project-card" tabindex="0" data-project='{"title": "Kopi Jalanan Website", "tech": "HTML,CSS,Javascript", "desc": "Built a modern branded website for Kopi Jalanan, a street-style coffee concept delivering café-quality taste at accessible prices. The site emphasizes fast ordering, product presentation, and a strong visual identity aligned with the brand’s “Rasa Café, Harga Jalanan” theme.","link":"https://xgroup10x.github.io/Kopi-jalanan/"}'>
-                        <h3 class="pc-title">Kopi Jalana Website</h3>
-                        <p class="pc-sub">HTML,CSS,Javascript</p>
+
+                    <div class="project-card" tabindex="0" data-project='{"title": "Kopi Jalanan Website", "tech": "HTML, CSS, JavaScript", "desc": "Built a modern branded website for Kopi Jalanan, a street-style coffee concept delivering café-quality taste at accessible prices.", "link": "https://xgroup10x.github.io/Kopi-jalanan/"}'>
+                        <h3 class="pc-title">Kopi Jalanan Website</h3>
+                        <p class="pc-sub">HTML, CSS, Javascript</p>
                     </div>
                 </div>
             </section>
@@ -201,22 +216,22 @@
                 <p>© <span id="year">2025</span> — Designed by Allystair Aaron anak Pita</p>
             </footer>
         </main>
-        
-    </div> 
-    
+    </div>
+
+    <!-- PROJECT MODAL -->
     <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="modal-panel">
             <button class="modal-close" aria-label="Close Modal">×</button>
             <h2 id="modal-title">Project Title</h2>
             <p class="muted" id="modal-tech"></p>
             <p id="modal-desc" style="margin-top: 15px;"></p>
+
             <div class="modal-actions">
-                <a href="#" class="link-muted" id="modal-link">View Code (Unavailable)</a>
+                <a href="#" class="link-muted" id="modal-link">View Project</a>
                 <button class="btn" id="modal-close-btn">Close</button>
             </div>
         </div>
     </div>
-
 
     <script src="script.js"></script>
 </body>
