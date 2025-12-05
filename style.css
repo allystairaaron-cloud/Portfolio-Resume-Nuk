@@ -150,6 +150,34 @@ a:hover{text-decoration:underline}
   color:var(--accent);
 }
 
+/* Theme Toggle (Moon Icon) */
+.theme-toggle{
+  margin-left:auto;
+  background:transparent;
+  border:1px solid rgba(0,0,0,0.06);
+  padding:8px;
+  border-radius:8px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+}
+.theme-toggle svg{
+  width:20px;
+  height:20px;
+  transition:.2s;
+}
+
+/* Make moon icon smaller on mobile */
+@media (max-width:480px){
+  .theme-toggle svg{
+    width:16px;
+    height:16px;
+  }
+  .theme-toggle{
+    padding:6px;
+  }
+}
+
 /* Main Content */
 .main{
   flex:1;
@@ -196,11 +224,13 @@ a:hover{text-decoration:underline}
   .profile-img-container{padding-top:0;margin-bottom:20px}
 }
 
-/* Skills */
+/* Skills Section */
 .skills-grid{
   display:flex;
   gap:12px;
   justify-content:center;
+  align-items:center;
+  text-align:center;
   flex-wrap:wrap;
 }
 .chip{
@@ -208,7 +238,16 @@ a:hover{text-decoration:underline}
   padding:12px 14px;
   border-radius:12px;
   min-width:180px;
-  text-align:center;
+}
+@media (max-width:480px){
+  .skills-grid{
+    flex-direction:column;
+    align-items:center;
+  }
+  .chip{
+    width:100%;
+    max-width:320px;
+  }
 }
 
 /* Timeline */
