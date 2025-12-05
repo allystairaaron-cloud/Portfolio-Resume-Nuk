@@ -75,7 +75,7 @@ function openMobileNav() {
 function closeMobileNav() {
     if(mobileSidebar) {
       mobileSidebar.classList.remove('open');
-      mobileNavToggle.setAttribute('aria-expanded', 'false');
+      mobileNavToggle.setAttribute('aria-expanded', 'false'); // Ensure toggle state is updated
       document.body.style.overflow = '';
     }
 }
@@ -101,8 +101,7 @@ document.querySelectorAll('.nav a').forEach(a => {
     navLinks.forEach(link => link.classList.remove('active'));
     a.classList.add('active');
 
-    //  Close the sidebar on link click (for mobile) 
-    // Check if the sidebar is currently open (implies mobile view)
+    // **FIX FOR MOBILE**: Close the sidebar after a link is clicked
     if (mobileSidebar && mobileSidebar.classList.contains('open')) {
         closeMobileNav();
     }
@@ -115,7 +114,7 @@ function openModal(data){
   modalTech.textContent = data.tech ? `Tech: ${data.tech}` : '';
   modalDesc.textContent = data.desc || 'No details available.';
   
-  //  Handle Link Dynamically 
+  // Handle Link Dynamically
   if (data.link) {
       modalLink.href = data.link;
       modalLink.textContent = 'View Live Prototype';
@@ -126,7 +125,7 @@ function openModal(data){
       modalLink.textContent = 'View Code (Unavailable)';
       modalLink.removeAttribute('target');
       // Set display to inline so the 'Unavailable' text is still shown
-      modalLink.style.display = 'inline'; 
+      modalLink.style.display = 'inline';
   }
   
   modal.setAttribute('aria-hidden', 'false');
@@ -211,9 +210,8 @@ const navObserver = new IntersectionObserver((entries) => {
     });
 }, {
     // Highlight section when it is roughly in the middle of the viewport
-    rootMargin: "-25% 0px -75% 0px", 
-    threshold: 0 
+    rootMargin: "-25% 0px -75% 0px",
+    threshold: 0
 });
 
 sections.forEach(s => navObserver.observe(s));
-
