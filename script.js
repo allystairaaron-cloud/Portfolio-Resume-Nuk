@@ -1,81 +1,63 @@
-// =============== THEME TOGGLE ===============
+// THEME TOGGLE
 const themeToggle = document.getElementById("theme-toggle");
-
 themeToggle.addEventListener("click", () => {
-    document.body.dataset.theme =
-        document.body.dataset.theme === "dark" ? "light" : "dark";
+  const isDark = document.body.dataset.theme === "dark";
+  document.body.dataset.theme = isDark ? "light" : "dark";
+  themeToggle.setAttribute("aria-pressed", String(!isDark));
 });
 
-// =============== MOBILE SIDEBAR ===============
+// MOBILE SIDEBAR
 const mobileToggle = document.getElementById("mobile-nav-toggle");
 const sidebar = document.getElementById("mobile-sidebar");
-const mobileClose = document.querySelector(".mobile-close-btn");
+const closeBtn = document.querySelector(".mobile-close-btn");
 
 mobileToggle.addEventListener("click", () => {
-    sidebar.classList.toggle("open");
+  sidebar.classList.toggle("open");
+  mobileToggle.setAttribute("aria-expanded", sidebar.classList.contains("open"));
 });
 
-mobileClose.addEventListener("click", () => {
-    sidebar.classList.remove("open");
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+  mobileToggle.setAttribute("aria-expanded", "false");
 });
 
-// Close sidebar when clicking outside (mobile only)
-document.addEventListener("click", (e) => {
-    if (window.innerWidth <= 780) {
-        if (!sidebar.contains(e.target) && !mobileToggle.contains(e.target)) {
-            sidebar.classList.remove("open");
-        }
-    }
-});
-
-
-// =============== PROJECT MODAL ===============
+// MODAL
 const modal = document.getElementById("project-modal");
 const modalTitle = document.getElementById("modal-title");
 const modalTech = document.getElementById("modal-tech");
 const modalDesc = document.getElementById("modal-desc");
 const modalLink = document.getElementById("modal-link");
-const modalClose = document.querySelector(".modal-close");
-const modalCloseBtn = document.getElementById("modal-close-btn");
 
-document.querySelectorAll(".project-card").forEach(card => {
-    card.addEventListener("click", () => {
-        const data = JSON.parse(card.dataset.project);
+function openModal(data){
+  modalTitle.textContent = data.title;
+  modalTech.textContent = data.tech;
+  modalDesc.textContent = data.desc;
+  modalLink.href = data.link;
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow = "hidden";
+}
 
-        modalTitle.textContent = data.title;
-        modalTech.textContent = data.tech;
-        modalDesc.textContent = data.desc;
-        modalLink.href = data.link;
+function closeModal(){
+  modal.setAttribute("aria-hidden","true");
+  document.body.style.overflow = "";
+}
 
-        modal.setAttribute("aria-hidden", "false");
-    });
+document.querySelectorAll(".project-card").forEach(card=>{
+  card.addEventListener("click",()=>{
+    openModal(JSON.parse(card.dataset.project));
+  });
+  card.addEventListener("keydown",(e)=>{
+    if(e.key==="Enter") openModal(JSON.parse(card.dataset.project));
+  });
 });
 
-// Close modal button (X)
-modalClose.addEventListener("click", () => {
-    modal.setAttribute("aria-hidden", "true");
+document.querySelector(".modal-close").addEventListener("click",closeModal);
+document.getElementById("modal-close-btn").addEventListener("click",closeModal);
+modal.addEventListener("click",(e)=>{ if(e.target===modal) closeModal(); });
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape") closeModal();
 });
 
-// Close modal button (Close)
-modalCloseBtn.addEventListener("click", () => {
-    modal.setAttribute("aria-hidden", "true");
-});
-
-// Close modal when clicking outside panel
-modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        modal.setAttribute("aria-hidden", "true");
-    }
-});
-
-// Escape key closes modal
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        modal.setAttribute("aria-hidden", "true");
-        sidebar.classList.remove("open");
-    }
-});
-
-
-// =============== YEAR AUTO UPDATE ===============
+// YEAR
 document.getElementById("year").textContent = new Date().getFullYear();
