@@ -1,228 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Muhammad Nuaim Nukman's portfolio featuring UI/UX design, computer graphics, and game development projects.">
-    <title>Nuaim Nukman | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Muhammad Nuaim Nukman, a Computer Science (Multimedia Computing) student specializing in UI/UX, computer graphics, and game development.">
+  <title>Nuaim Nukman | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-    <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" title="Toggle Navigation">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-        </svg>
+<body data-theme="light">
+
+<button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+  </svg>
+</button>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="mobile-sidebar">
+  <div class="sidebar-top">
+
+    <div class="brand">
+      <img src="https://github.com/allystairaaron-cloud/Portfolio-Resume-Nuk/blob/main/images/UNIMAS-logo.png?raw=true"
+           class="brand-profile-img" alt="UNIMAS Logo">
+      <div>
+        <h2 class="name">Nuaim Nukman <span>Portfolio</span></h2>
+        <p class="muted">Creative solutions through code & design</p>
+      </div>
+      <button class="mobile-close-btn" aria-label="Close menu">×</button>
+    </div>
+
+    <button class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Toggle theme">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
     </button>
 
-    <div class="app">
+    <nav class="nav">
+      <a href="#about" class="active">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+    </nav>
+  </div>
 
-        <aside class="sidebar" id="mobile-sidebar">
-            <div class="sidebar-top">
+  <footer class="sidebar-footer muted">Version 1.0</footer>
+</aside>
 
-                <div class="brand">
-                    <img src="https://github.com/allystairaaron-cloud/Portfolio-Resume-Nuk/blob/main/images/nuk%20profile.jpg?raw=true" alt="Nuaim Nukman profile" class="brand-profile-img">
+<!-- MAIN -->
+<main class="main">
 
-                    <div>
-                        <h2 class="name">Nuaim Nukman <span class="muted">Portfolio</span></h2>
-                        <p class="brand-motto">Creative solutions through code and design.</p>
-                    </div>
+<!-- ABOUT -->
+<section id="about" class="section hero">
+  <div class="hero-inner">
+    <img src="https://github.com/allystairaaron-cloud/Portfolio-Resume-Nuk/blob/main/images/nuk%20profile.jpg?raw=true"
+         class="profile-img" alt="Profile picture">
+    <div>
+      <p class="muted">Hello, I'm</p>
+      <h1>Muhammad Nuaim Nukman</h1>
+      <p>
+        A passionate Computer Science (Multimedia Computing) student with strong interest in
+        UI/UX, computer graphics, and game development. Seeking internship opportunities
+        to apply technical and creative skills in real-world projects.
+      </p>
+      <p class="muted">
+        📧 <a href="mailto:mnnukman03@gmail.com">mnnukman03@gmail.com</a> ·
+        📞 <a href="tel:+601159103015">011-59103015</a> ·
+        📍 Selangor, Malaysia ·
+        <a href="https://www.linkedin.com/in/nuaim-nukman-shahrul-azli-5b61ba29a" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+</section>
 
-                    <button class="modal-close mobile-close-btn" aria-label="Close Menu">×</button>
-                </div>
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="chip"><strong>Languages</strong><br>C, C++, Python, Java</div>
+    <div class="chip"><strong>Tools & Platforms</strong><br>VS Code, Unity, Figma</div>
+    <div class="chip"><strong>Focus Areas</strong><br>UI/UX · Game Dev · Computer Graphics</div>
+  </div>
+</section>
 
-                <button class="theme-toggle" id="theme-toggle" aria-pressed="false" title="Toggle Theme">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
-                </button>
-            </div>
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <h2 class="section-title">Education</h2>
+  <div class="timeline">
 
-            <nav class="nav">
-                <a href="#about" class="active">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#education">Education</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <p class="link-muted">Version 1.0</p>
-            </div>
-        </aside>
-
-        <main class="main">
-            <section id="about" class="section">
-                <div class="hero">
-                    <div class="hero-inner">
-                        <div class="profile-img-container">
-                            <img src="https://github.com/allystairaaron-cloud/Portfolio-Resume-Nuk/blob/main/images/nuk%20profile.jpg?raw=true" alt="Muhammad Nuaim Nukman Profile Picture" class="profile-img">
-                        </div>
-
-                        <div class="hero-text-content">
-                            <p class="lead">Hello, I'm</p>
-                            <h1 class="title">Muhammad Nuaim Nukman</h1>
-                            <p class="summary">
-                                A passionate Computer Science (Multimedia Computing) student with strong interest in 
-                                UI/UX, computer graphics, and game development. Seeking internship opportunities 
-                                to apply technical and creative skills in real-world multimedia or software development projects.
-                            </p>
-                            <div class="meta">
-                                <span>Email: <a href="mailto:mnnukman03@gmail.com">mnnukman03@gmail.com</a></span>
-                                <span>Phone: 011-59103015</span>
-                                <span>Location: Sarawak, Malaysia</span>
-                                <span><a href="https://www.linkedin.com/in/nuaim-nukman-shahrul-azli-5b61ba29a" target="_blank">LinkedIn Profile</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="skills" class="section">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="chip">
-                        <strong>Languages</strong>
-                        <span>C, C++, Python, Java</span>
-                    </div>
-                    <div class="chip">
-                        <strong>Tools & Platforms</strong>
-                        <span>VS Code, Unity, Figma</span>
-                    </div>
-                    <div class="chip">
-                        <strong>Focus Areas</strong>
-                        <span>UI/UX · Game Dev · Computer Graphics</span>
-                    </div>
-                </div>
-            </section>
-
-            <section id="education" class="section">
-                <h2 class="section-title">Education</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <span class="time">2023 - Present</span>
-                            <div class="content">
-                                <h3>Universiti Malaysia Sarawak (UNIMAS)</h3>
-                                <p>Bachelor in Computer Science (Multimedia Computing) • CGPA: 2.78/4.00</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <span class="time">2021 - 2023</span>
-                            <div class="content">
-                                <h3>Kolej Matrikulasi Selangor</h3>
-                                <p>Computer Science • CGPA: 3.04/4.00</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <span class="time">2016 - 2020</span>
-                            <div class="content">
-                                <h3>SMK Bandar Tasik Puteri</h3>
-                                <p>Pure Science • SPM: 3A</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="experience" class="section">
-                <h2 class="section-title">Experience & Activities</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <span class="time">Recent</span>
-                            <div class="content">
-                                <h3>Referee</h3>
-                                <p>EA FC24 PS5 Tournament at Majma Mall, Kuching</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <span class="time">2023</span>
-                            <div class="content">
-                                <h3>Basketball Athlete</h3>
-                                <p>Representing PetraJaya Thunders</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <span class="time">Past</span>
-                            <div class="content">
-                                <h3>Part-time Barista</h3>
-                                <p>The Kopi Jalanan</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <span class="time">Past</span>
-                            <div class="content">
-                                <h3>Cook & Host</h3>
-                                <p>Kenny Rogers Roasters, AEON Rawang</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <span class="time">2016-2020</span>
-                            <div class="content">
-                                <h3>Team Member</h3>
-                                <p>Former Basketball & Rugby team member at SMK Bandar Tasik Puteri</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projects" class="section">
-                <h2 class="section-title">Projects</h2>
-                <div class="project-grid">
-
-                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Mobile App Prototype", "tech": "Figma, UI/UX Design", "desc": "Designed a complete mobile application interface and user flow for the Kuching Urban Transportation System (KUTS). Focused on intuitive navigation, real-time route tracking, and ticket purchasing.", "link": "https://www.figma.com/proto/lwLUVfYWcBX2YMEzwFWBZQ/Prtotype-Assignment-3?node-id=9-31"}'>
-                        <h3 class="pc-title">KUTS Mobile App Prototype (Figma)</h3>
-                        <p class="pc-sub">Figma, UI/UX Design</p>
-                    </div>
-
-                    <div class="project-card" tabindex="0" data-project='{"title": "KUTS Interactive Map", "tech": "Figma Prototyping", "desc": "Created a high-fidelity interactive map UI, allowing users to visually select destinations and view optimized route information.", "link": "https://www.figma.com/proto/HFyoUnYXYtYW3pYtovOCwV?node-id=0:1"}'>
-                        <h3 class="pc-title">KUTS Interactive Map (Figma)</h3>
-                        <p class="pc-sub">Figma Prototyping</p>
-                    </div>
-
-                    <div class="project-card" tabindex="0" data-project='{"title": "Kopi Jalanan Website", "tech": "HTML, CSS, JavaScript", "desc": "Built a modern branded website for Kopi Jalanan, a street-style coffee concept delivering café-quality taste at accessible prices.", "link": "https://xgroup10x.github.io/Kopi-jalanan/"}'>
-                        <h3 class="pc-title">Kopi Jalanan Website</h3>
-                        <p class="pc-sub">HTML, CSS, Javascript</p>
-                    </div>
-                </div>
-            </section>
-
-            <footer class="site-footer">
-                <p>© <span id="year">2025</span> — Designed by Allystair Aaron anak Pita</p>
-            </footer>
-        </main>
+    <div class="timeline-item">
+      <h3>Universiti Malaysia Sarawak (UNIMAS)</h3>
+      <p>2023 – Present · Bachelor of Computer Science (Multimedia Computing)</p>
+      <p class="muted">CGPA: 2.78</p>
     </div>
 
-    <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="modal-panel">
-            <button class="modal-close" aria-label="Close Modal">×</button>
-            <h2 id="modal-title">Project Title</h2>
-            <p class="muted" id="modal-tech"></p>
-            <p id="modal-desc" style="margin-top: 15px;"></p>
-
-            <div class="modal-actions">
-                <a href="#" class="link-muted" id="modal-link">View Project</a>
-                <button class="btn" id="modal-close-btn">Close</button>
-            </div>
-        </div>
+    <div class="timeline-item">
+      <h3>Kolej Matrikulasi Selangor</h3>
+      <p>2021 – 2023 · Computer Science</p>
+      <p class="muted">CGPA: 3.04</p>
     </div>
 
-    <script src="script.js"></script>
+    <div class="timeline-item">
+      <h3>SMK Bandar Tasik Puteri</h3>
+      <p>2016 – 2020 · Pure Science</p>
+      <p class="muted">SPM: 3A</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS (ORIGINAL 3 PROJECTS) -->
+<section id="projects" class="section">
+  <h2 class="section-title">Projects</h2>
+  <div class="project-grid">
+
+    <div class="project-card" tabindex="0"
+      data-project='{
+        "title":"KUTS Mobile App Prototype",
+        "tech":"Figma, UI/UX Design",
+        "desc":"Designed a complete mobile application interface and user flow for the Kuching Urban Transportation System (KUTS), focusing on intuitive navigation, route tracking, and ticket purchasing.",
+        "link":"https://www.figma.com/proto/lwLUVfYWcBX2YMEzwFWBZQ/Prtotype-Assignment-3"
+      }'>
+      <h3>KUTS Mobile App Prototype</h3>
+      <p class="muted">Figma · UI/UX</p>
+    </div>
+
+    <div class="project-card" tabindex="0"
+      data-project='{
+        "title":"KUTS Interactive Map",
+        "tech":"Figma Prototyping",
+        "desc":"Created a high-fidelity interactive map UI allowing users to visually select destinations and view optimized routes.",
+        "link":"https://www.figma.com/proto/HFyoUnYXYtYW3pYtovOCwV"
+      }'>
+      <h3>KUTS Interactive Map</h3>
+      <p class="muted">Figma · Prototyping</p>
+    </div>
+
+    <div class="project-card" tabindex="0"
+      data-project='{
+        "title":"Kopi Jalanan Website",
+        "tech":"HTML, CSS, JavaScript",
+        "desc":"Built a modern branded website for Kopi Jalanan, a street-style coffee concept delivering café-quality taste at accessible prices.",
+        "link":"https://xgroup10x.github.io/Kopi-jalanan/"
+      }'>
+      <h3>Kopi Jalanan Website</h3>
+      <p class="muted">HTML · CSS · JavaScript</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE (ORIGINAL TIMELINE) -->
+<section id="experience" class="section">
+  <h2 class="section-title">Experience & Activities</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <h3>Referee</h3>
+      <p class="muted">EA FC24 PS5 Tournament · Majma Mall, Kuching</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Basketball Athlete</h3>
+      <p class="muted">PetraJaya Thunders (2023)</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Part-time Barista</h3>
+      <p class="muted">The Kopi Jalanan</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Cook & Host</h3>
+      <p class="muted">Kenny Rogers Roasters, AEON Rawang</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Team Member</h3>
+      <p class="muted">Basketball & Rugby · SMK Bandar Tasik Puteri (2016–2020)</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  © <span id="year"></span> — Allystair Aaron anak Pita
+</footer>
+
+</main>
+</div>
+
+<!-- PROJECT MODAL -->
+<div class="modal" id="project-modal" aria-hidden="true">
+  <div class="modal-panel">
+    <button class="modal-close" aria-label="Close modal">×</button>
+    <h2 id="modal-title"></h2>
+    <p class="muted" id="modal-tech"></p>
+    <p id="modal-desc"></p>
+    <a id="modal-link" target="_blank" rel="noopener">View Project</a>
+    <button id="modal-close-btn">Close</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
